@@ -3,6 +3,8 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using FarmNet.Models;
+using System.Data.SqlClient;
 
 namespace FarmNet.Respositories
 {
@@ -16,6 +18,26 @@ namespace FarmNet.Respositories
                 .OrderByDescending(c => c.create_dt)
                 .Skip(start).Take(max);
         }
-
+        public IEnumerable<s_GetChartBySerial> GetChartBySerial(string serial_number) {
+            var qry = db.Database.SqlQuery<s_GetChartBySerial>("[farmnet].[s_GetChartBySerial] @serial_number",
+                new SqlParameter("@serial_number",serial_number)
+            ).ToList();
+            if (qry != null)
+            {
+                return qry;
+            }
+            return null;
+        }
+        public IEnumerable<s_GetChartBySerialSoil> GetChartBySerialSoil(string serial_number)
+        {
+            var qry = db.Database.SqlQuery<s_GetChartBySerialSoil>("[farmnet].[s_GetChartBySerialSoil] @serial_number",
+                new SqlParameter("@serial_number", serial_number)
+            ).ToList();
+            if (qry != null)
+            {
+                return qry;
+            }
+            return null;
+        }
     }
 }

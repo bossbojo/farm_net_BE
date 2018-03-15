@@ -241,6 +241,8 @@
     <Compile Include="Models\m_SignIn.cs" />
     <Compile Include="Models\m_Users.cs" />
     <Compile Include="Models\m_User_online.cs" />
+    <Compile Include="Models\s_GetChartBySerial.cs" />
+    <Compile Include="Models\s_GetChartBySerialSoil.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Respositories\R_Authentication.cs" />
     <Compile Include="Respositories\R_Data_sensor.cs" />

@@ -29,5 +29,43 @@ namespace FarmNet.Controllers
                 return BadRequest(ex.Message);
             }
         }
+        [HttpGet]
+        [Route("api/get/data/sensor/main")]
+        public IHttpActionResult GetChartBySerial()
+        {
+            try
+            {
+                var user = Authentication.User;
+                var res = _GetData.GetChartBySerial(user.serial_number);
+                if (res != null)
+                {
+                    return Json(res);
+                }
+                return BadRequest("fail get data.");
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
+        [HttpGet]
+        [Route("api/get/data/sensor/soil")]
+        public IHttpActionResult GetChartBySerialSoil()
+        {
+            try
+            {
+                var user = Authentication.User;
+                var res = _GetData.GetChartBySerialSoil(user.serial_number);
+                if (res != null)
+                {
+                    return Json(res);
+                }
+                return BadRequest("fail get data.");
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
     }
 }

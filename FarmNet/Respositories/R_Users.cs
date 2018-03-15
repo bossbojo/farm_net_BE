@@ -22,7 +22,7 @@ namespace FarmNet.Respositories
         public Users UserCreate(m_Users request)
         {
             request.password = Convert.ToBase64String(Encoding.UTF8.GetBytes(request.password));
-            var qry = db.Database.SqlQuery<Users>("EXEC [farmnet].[s_Users_Create] @firstname,@lastname,@email,@username,@password,@serial_number,@lat,@lng,@user_type_id",
+            var qry = db.Database.SqlQuery<Users>("EXEC [farmnet].[s_Users_Create] @firstname,@lastname,@email,@username,@password,@serial_number,@lat,@lng,@user_type_id,@house_no,@village_no,@sub_area,@area,@province,@postal_code",
                 new SqlParameter("@firstname", request.firstname),
                 new SqlParameter("@lastname", request.lastname),
                 new SqlParameter("@email", request.email),
@@ -31,7 +31,13 @@ namespace FarmNet.Respositories
                 new SqlParameter("@serial_number", request.serial_number),
                 new SqlParameter("@lat", request.lat),
                 new SqlParameter("@lng", request.lng),
-                new SqlParameter("@user_type_id", request.user_type_id)
+                new SqlParameter("@user_type_id", request.user_type_id),
+                new SqlParameter("@house_no", request.house_no),
+                new SqlParameter("@village_no", request.village_no),
+                new SqlParameter("@sub_area", request.sub_area),
+                new SqlParameter("@area", request.area),
+                new SqlParameter("@province", request.province),
+                new SqlParameter("@postal_code", request.postal_code)
             ).FirstOrDefault();
             if (qry != null) {
                 return qry;
@@ -67,7 +73,13 @@ namespace FarmNet.Respositories
                 new SqlParameter("@email", request.email),
                 new SqlParameter("@serial_number", request.serial_number),
                 new SqlParameter("@lat", request.lat),
-                new SqlParameter("@lng", request.lng)
+                new SqlParameter("@lng", request.lng),
+                new SqlParameter("@house_no", request.house_no),
+                new SqlParameter("@village_no", request.village_no),
+                new SqlParameter("@sub_area", request.sub_area),
+                new SqlParameter("@area", request.area),
+                new SqlParameter("@province", request.province),
+                new SqlParameter("@postal_code", request.postal_code)
             ).FirstOrDefault();
             if (qry != null)
             {
