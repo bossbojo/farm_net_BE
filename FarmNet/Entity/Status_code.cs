@@ -16,5 +16,6 @@ namespace FarmNet.Entity
 
         [StringLength(50)]
         public string status_name { get; set; }
+
     }
 }

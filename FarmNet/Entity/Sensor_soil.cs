@@ -21,6 +21,5 @@ namespace FarmNet.Entity
         public string status { get; set; }
 
         public DateTime? create_dt { get; set; }
-
     }
 }

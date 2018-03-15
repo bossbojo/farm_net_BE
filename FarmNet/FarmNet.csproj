@@ -221,15 +221,18 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ImagesController.cs" />
     <Compile Include="Controllers\SensorSoilController.cs" />
+    <Compile Include="Controllers\SettingController.cs" />
     <Compile Include="Entity\Data_sensor.cs" />
     <Compile Include="Entity\FarmDB.cs" />
     <Compile Include="Entity\Images.cs" />
     <Compile Include="Entity\Sensor_soil.cs" />
+    <Compile Include="Entity\Setting.cs" />
     <Compile Include="Entity\Status_code.cs" />
     <Compile Include="Entity\Users.cs" />
     <Compile Include="Entity\Users_online.cs" />
     <Compile Include="Entity\User_type.cs" />
     <Compile Include="Entity\v_DataSensor_User.cs" />
+    <Compile Include="Entity\v_SettingData.cs" />
     <Compile Include="Entity\v_User.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -238,6 +241,7 @@
     <Compile Include="Models\m_DataSensor.cs" />
     <Compile Include="Models\m_Images.cs" />
     <Compile Include="Models\m_SensorSoil.cs" />
+    <Compile Include="Models\m_Setting.cs" />
     <Compile Include="Models\m_SignIn.cs" />
     <Compile Include="Models\m_Users.cs" />
     <Compile Include="Models\m_User_online.cs" />
@@ -249,6 +253,7 @@
     <Compile Include="Respositories\R_GetData.cs" />
     <Compile Include="Respositories\R_Image.cs" />
     <Compile Include="Respositories\R_Sensor_soil.cs" />
+    <Compile Include="Respositories\R_Setting.cs" />
     <Compile Include="Respositories\R_Uploadfile.cs" />
     <Compile Include="Respositories\R_Users.cs" />
     <Compile Include="Respositories\R_Users_online.cs" />
