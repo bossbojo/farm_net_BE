@@ -11,9 +11,9 @@ namespace FarmNet.Respositories
     public class R_Sensor_soil
     {
         private FarmDB db = new FarmDB();
-        public Sensor_soil SensorSoilCreate(m_SensorSoil request)
+        public sensor_soil SensorSoilCreate(m_SensorSoil request)
         {
-            var qry = db.Database.SqlQuery<Sensor_soil>("[farmnet].[s_Sensor_soil_Create] @serial_number,@soil_data",
+            var qry = db.Database.SqlQuery<sensor_soil>("[farmnet].[s_Sensor_soil_Create] @serial_number,@soil_data",
                 new SqlParameter("@serial_number", request.serial_number),
                 new SqlParameter("@soil_data", request.soil_data)
             ).FirstOrDefault();
@@ -23,9 +23,9 @@ namespace FarmNet.Respositories
             }
             return null;
         }
-        public Sensor_soil SensorSoilEdit(m_SensorSoil request,int Id)
+        public sensor_soil SensorSoilEdit(m_SensorSoil request,int Id)
         {
-            var qry = db.Database.SqlQuery<Sensor_soil>("[farmnet].[s_Sensor_soil_Edit] @Id,@serial_number,@soil_data",
+            var qry = db.Database.SqlQuery<sensor_soil>("[farmnet].[s_Sensor_soil_Edit] @Id,@serial_number,@soil_data",
                 new SqlParameter("@Id", Id),
                 new SqlParameter("@serial_number", request.serial_number),
                 new SqlParameter("@soil_data", request.soil_data)
@@ -36,9 +36,9 @@ namespace FarmNet.Respositories
             }
             return null;
         }
-        public Sensor_soil SensorSoilRemove(int Id)
+        public sensor_soil SensorSoilRemove(int Id)
         {
-            var qry = db.Database.SqlQuery<Sensor_soil>("[farmnet].[s_Sensor_soil_Remove] @Id",
+            var qry = db.Database.SqlQuery<sensor_soil>("[farmnet].[s_Sensor_soil_Remove] @Id",
                 new SqlParameter("@Id", Id)
             ).FirstOrDefault();
             if (qry != null)

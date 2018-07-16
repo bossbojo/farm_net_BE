@@ -13,8 +13,6 @@ namespace FarmNet.Models
         public string username { get; set; }
         public string password { get; set; }
         public string serial_number { get; set; }
-        public float lat { get; set; }
-        public float lng { get; set; }
         public int user_type_id { get; set; }
         public string house_no { get; set; }
         public string village_no { get; set; }
@@ -29,8 +27,6 @@ namespace FarmNet.Models
         public string lastname { get; set; }
         public string email { get; set; }
         public string serial_number { get; set; }
-        public float lat { get; set; }
-        public float lng { get; set; }
         public string house_no { get; set; }
         public string village_no { get; set; }
         public string sub_area { get; set; }

@@ -32,12 +32,14 @@ namespace FarmNet.Controllers
             try
             {
                 var res = _Users.GetUsers(Id);
-                if (res != null) {
+                if (res != null)
+                {
                     return Json(res);
                 }
                 return BadRequest("fail get user.");
             }
-            catch (Exception ex) {
+            catch (Exception ex)
+            {
                 return BadRequest(ex.Message);
             }
         }
@@ -78,12 +80,21 @@ namespace FarmNet.Controllers
             {
                 try
                 {
-                    var qry = _Users.UserCreate(request);
-                    if (qry != null)
+                    if (!Auth.checkHaveSerialNumber(request.serial_number))
                     {
-                        return Json(qry);
+                        if (!Auth.checkHaveUser(request.username))
+                        {
+                            var qry = _Users.UserCreate(request);
+                            if (qry != null)
+                            {
+                                return Json(qry);
+                            }
+                            return BadRequest("Create user failed.");
+                        }
+                        return BadRequest("have username in system.");
                     }
-                    return BadRequest("Create user failed.");
+                    return BadRequest("have serial number in system.");
+
                 }
                 catch (Exception ex)
                 {

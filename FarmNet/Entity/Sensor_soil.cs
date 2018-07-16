@@ -6,13 +6,12 @@ namespace FarmNet.Entity
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
 
-    [Table("farmnet.Sensor_soil")]
-    public partial class Sensor_soil
+    [Table("farmnet.sensor_soil")]
+    public partial class sensor_soil
     {
         public int Id { get; set; }
 
-        [StringLength(50)]
-        public string serial_number { get; set; }
+        public int? sensor_id { get; set; }
 
         public int? soil_data { get; set; }
 
@@ -21,5 +20,7 @@ namespace FarmNet.Entity
         public string status { get; set; }
 
         public DateTime? create_dt { get; set; }
+
+        public virtual status_code status_code { get; set; }
     }
 }

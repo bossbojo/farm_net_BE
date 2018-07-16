@@ -6,8 +6,8 @@ namespace FarmNet.Entity
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
 
-    [Table("farmnet.Users")]
-    public partial class Users
+    [Table("farmnet.users")]
+    public partial class users
     {
         [Key]
         public int user_id { get; set; }
@@ -64,5 +64,9 @@ namespace FarmNet.Entity
         public string postal_code { get; set; }
 
         public DateTime time_stamp_ctd { get; set; }
+
+        public virtual status_code status_code { get; set; }
+
+        public virtual user_type user_type { get; set; }
     }
 }

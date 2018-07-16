@@ -13,24 +13,24 @@ namespace FarmNet.Controllers
     {
         private R_Setting _Setting = new R_Setting();
 
-        [HttpGet]
-        [Route("api/get/setting")]
-        public IHttpActionResult GetSetting(string serial_number) {
-                try
-                {
-                    var res = _Setting.GetSetting(serial_number);
-                    if (res != null)
-                    {
-                        return Json(res);
-                    }
-                    return BadRequest("Update image failed.");
-                }
-                catch (Exception ex)
-                {
-                    return BadRequest(ex.Message);
-                }
+        //[HttpGet]
+        //[Route("api/get/setting")]
+        //public IHttpActionResult GetSetting(string serial_number) {
+        //        try
+        //        {
+        //            var res = _Setting.GetSetting(serial_number);
+        //            if (res != null)
+        //            {
+        //                return Json(res);
+        //            }
+        //            return BadRequest("Update image failed.");
+        //        }
+        //        catch (Exception ex)
+        //        {
+        //            return BadRequest(ex.Message);
+        //        }
             
-        }
+        //}
         [HttpPut]
         [Route("api/update/setting")]
         public IHttpActionResult UpdateSetting([FromBody] m_Setting request, int id)

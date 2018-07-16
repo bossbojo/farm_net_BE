@@ -47,5 +47,41 @@ namespace FarmNet.Entity
 
         [StringLength(50)]
         public string user_type { get; set; }
+
+        [Key]
+        [Column(Order = 4)]
+        [StringLength(2)]
+        public string status { get; set; }
+
+        [Key]
+        [Column(Order = 5)]
+        public bool verify { get; set; }
+
+        [StringLength(10)]
+        public string house_no { get; set; }
+
+        [Key]
+        [Column(Order = 6)]
+        [DatabaseGenerated(DatabaseGeneratedOption.None)]
+        public int user_type_id { get; set; }
+
+        [StringLength(10)]
+        public string village_no { get; set; }
+
+        [StringLength(50)]
+        public string sub_area { get; set; }
+
+        [StringLength(50)]
+        public string area { get; set; }
+
+        [StringLength(50)]
+        public string province { get; set; }
+
+        [StringLength(10)]
+        public string postal_code { get; set; }
+
+        [Key]
+        [Column(Order = 7)]
+        public DateTime time_stamp_ctd { get; set; }
     }
 }

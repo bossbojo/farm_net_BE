@@ -17,20 +17,18 @@ namespace FarmNet.Respositories
         }
         public bool Checkpassword(string password) {
             password = Convert.ToBase64String(Encoding.UTF8.GetBytes(password));
-            return db.Users.Count(c => c.password == password)>0? true:false;
+            return db.users.Count(c => c.password == password)>0? true:false;
         }
-        public Users UserCreate(m_Users request)
+        public users UserCreate(m_Users request)
         {
             request.password = Convert.ToBase64String(Encoding.UTF8.GetBytes(request.password));
-            var qry = db.Database.SqlQuery<Users>("EXEC [farmnet].[s_Users_Create] @firstname,@lastname,@email,@username,@password,@serial_number,@lat,@lng,@user_type_id,@house_no,@village_no,@sub_area,@area,@province,@postal_code",
+            var qry = db.Database.SqlQuery<users>("EXEC [farmnet].[s_Users_Create] @firstname,@lastname,@email,@username,@password,@serial_number,@user_type_id,@house_no,@village_no,@sub_area,@area,@province,@postal_code",
                 new SqlParameter("@firstname", request.firstname),
                 new SqlParameter("@lastname", request.lastname),
                 new SqlParameter("@email", request.email),
                 new SqlParameter("@username", request.username),
                 new SqlParameter("@password", request.password),
                 new SqlParameter("@serial_number", request.serial_number),
-                new SqlParameter("@lat", request.lat),
-                new SqlParameter("@lng", request.lng),
                 new SqlParameter("@user_type_id", request.user_type_id),
                 new SqlParameter("@house_no", request.house_no),
                 new SqlParameter("@village_no", request.village_no),
@@ -44,9 +42,9 @@ namespace FarmNet.Respositories
             }
             return null;
         }
-        public Users UserEdit(m_Users request,int Id)
+        public users UserEdit(m_Users request,int Id)
         {
-            var qry = db.Database.SqlQuery<Users>("EXEC [farmnet].[s_Users_Edit] @Id,@firstname,@lastname,@email,@username,@password,@serial_number,@lat,@lng,@user_type_id",
+            var qry = db.Database.SqlQuery<users>("EXEC [farmnet].[s_Users_Edit] @Id,@firstname,@lastname,@email,@username,@password,@serial_number,@lat,@lng,@user_type_id",
                 new SqlParameter("@Id",Id),
                 new SqlParameter("@firstname", request.firstname),
                 new SqlParameter("@lastname", request.lastname),
@@ -54,8 +52,6 @@ namespace FarmNet.Respositories
                 new SqlParameter("@username", request.username),
                 new SqlParameter("@password", request.password),
                 new SqlParameter("@serial_number", request.serial_number),
-                new SqlParameter("@lat", request.lat),
-                new SqlParameter("@lng", request.lng),
                 new SqlParameter("@user_type_id", request.user_type_id)
             ).FirstOrDefault();
             if (qry != null)
@@ -64,16 +60,14 @@ namespace FarmNet.Respositories
             }
             return null;
         }
-        public Users UserEditProfile(m_Users_Profile request, int Id)
+        public users UserEditProfile(m_Users_Profile request, int Id)
         {
-            var qry = db.Database.SqlQuery<Users>("EXEC [farmnet].[s_Users_Edit_Profile] @Id,@firstname,@lastname,@email,@serial_number,@lat,@lng",
+            var qry = db.Database.SqlQuery<users>("EXEC [farmnet].[s_Users_Edit_Profile] @Id,@firstname,@lastname,@email,@serial_number,@house_no,@village_no,@sub_area,@area,@province,@postal_code",
                 new SqlParameter("@Id", Id),
                 new SqlParameter("@firstname", request.firstname),
                 new SqlParameter("@lastname", request.lastname),
                 new SqlParameter("@email", request.email),
                 new SqlParameter("@serial_number", request.serial_number),
-                new SqlParameter("@lat", request.lat),
-                new SqlParameter("@lng", request.lng),
                 new SqlParameter("@house_no", request.house_no),
                 new SqlParameter("@village_no", request.village_no),
                 new SqlParameter("@sub_area", request.sub_area),
@@ -87,10 +81,10 @@ namespace FarmNet.Respositories
             }
             return null;
         }
-        public Users UserEditPassword(m_Users_Password request, int Id)
+        public users UserEditPassword(m_Users_Password request, int Id)
         {
             request.new_password = Convert.ToBase64String(Encoding.UTF8.GetBytes(request.new_password));
-            var qry = db.Database.SqlQuery<Users>("EXEC [farmnet].[s_Users_Edit_Password] @Id,@password",
+            var qry = db.Database.SqlQuery<users>("EXEC [farmnet].[s_Users_Edit_Password] @Id,@password",
                 new SqlParameter("@Id", Id),
                 new SqlParameter("@password", request.new_password)
             ).FirstOrDefault();
@@ -100,9 +94,9 @@ namespace FarmNet.Respositories
             }
             return null;
         }
-        public Users UserRemove(int Id)
+        public users UserRemove(int Id)
         {
-            var qry = db.Database.SqlQuery<Users>("EXEC [farmnet].[s_Users_Remove] @Id",
+            var qry = db.Database.SqlQuery<users>("EXEC [farmnet].[s_Users_Remove] @Id",
                 new SqlParameter("@Id", Id)
             ).FirstOrDefault();
             if (qry != null)

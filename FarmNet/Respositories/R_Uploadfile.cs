@@ -11,7 +11,7 @@ namespace FarmNet.Respositories
         public string uploadImage(string img) {
 
             var imgsplit = img.Split(',');
-            img = imgsplit.Length > 0 ? imgsplit[1] : img;
+            img = imgsplit.Length > 1 ? imgsplit[1] : img;
             var myfilename = string.Format(@"{0}", Guid.NewGuid());
             myfilename = myfilename + ".jpeg";
             string filepath = HttpContext.Current.Server.MapPath("~/Images/" + myfilename);

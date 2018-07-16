@@ -61,7 +61,7 @@ C:\Users\Paramat\Desktop\FarmNet\FarmNet\bin\Microsoft.AI.DependencyCollector.xm
 C:\Users\Paramat\Desktop\FarmNet\FarmNet\bin\Microsoft.AI.ServerTelemetryChannel.xml
 C:\Users\Paramat\Desktop\FarmNet\FarmNet\bin\Microsoft.AI.WindowsServer.xml
 C:\Users\Paramat\Desktop\FarmNet\FarmNet\bin\Microsoft.AI.Web.xml
-C:\Users\Paramat\Desktop\FarmNet\FarmNet\obj\Debug\FarmNet.csprojResolveAssemblyReference.cache
 C:\Users\Paramat\Desktop\FarmNet\FarmNet\obj\Debug\FarmNet.csproj.CoreCompileInputs.cache
 C:\Users\Paramat\Desktop\FarmNet\FarmNet\obj\Debug\FarmNet.dll
 C:\Users\Paramat\Desktop\FarmNet\FarmNet\obj\Debug\FarmNet.pdb
+C:\Users\Paramat\Desktop\FarmNet\FarmNet\obj\Debug\FarmNet.csprojResolveAssemblyReference.cache

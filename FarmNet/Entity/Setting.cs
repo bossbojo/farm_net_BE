@@ -6,26 +6,16 @@ namespace FarmNet.Entity
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
 
-    [Table("farmnet.Setting")]
-    public partial class Setting
+    [Table("farmnet.setting")]
+    public partial class setting
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.None)]
         public int user_id { get; set; }
 
-        public int? temp { get; set; }
+        public int? sensor { get; set; }
 
-        public int? moisture { get; set; }
-
-        public int? raining { get; set; }
-
-        public int? wind { get; set; }
-
-        public int? uv { get; set; }
-
-        public int? soil { get; set; }
-
-        public int? image { get; set; }
+        public TimeSpan? camera { get; set; }
 
         [Required]
         [StringLength(2)]
@@ -35,5 +25,6 @@ namespace FarmNet.Entity
 
         public DateTime? create_dt { get; set; }
 
+        public virtual status_code status_code { get; set; }
     }
 }

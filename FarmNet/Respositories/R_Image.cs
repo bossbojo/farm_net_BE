@@ -12,10 +12,10 @@ namespace FarmNet.Respositories
     {
         private FarmDB db = new FarmDB();
         private R_Uploadfile _Uploadfile = new R_Uploadfile();
-        public Images ImagesCreate(m_Images request)
+        public images ImagesCreate(m_Images request)
         {
             var filename = _Uploadfile.uploadImage(request.image);
-            var qry = db.Database.SqlQuery<Images>("[farmnet].[s_Images_Create] @serial_number,@image",
+            var qry = db.Database.SqlQuery<images>("[farmnet].[s_Images_Create] @serial_number,@image",
                 new SqlParameter("@serial_number", request.serial_number),
                 new SqlParameter("@image", filename)
             ).FirstOrDefault();
@@ -25,10 +25,10 @@ namespace FarmNet.Respositories
             }
             return null;
         }
-        public Images ImagesEdit(m_Images request,int Id)
+        public images ImagesEdit(m_Images request,int Id)
         {
             var filename = _Uploadfile.uploadImage(request.image);
-            var qry = db.Database.SqlQuery<Images>("[farmnet].[s_Images_Edit] @Id,@serial_number,@image",
+            var qry = db.Database.SqlQuery<images>("[farmnet].[s_Images_Edit] @Id,@serial_number,@image",
                 new SqlParameter("@Id", Id),
                 new SqlParameter("@serial_number", request.serial_number),
                 new SqlParameter("@image", filename)
@@ -39,9 +39,9 @@ namespace FarmNet.Respositories
             }
             return null;
         }
-        public Images ImagesRemove(int Id)
+        public images ImagesRemove(int Id)
         {
-            var qry = db.Database.SqlQuery<Images>("[farmnet].[s_Images_Remove] @Id",
+            var qry = db.Database.SqlQuery<images>("[farmnet].[s_Images_Remove] @Id",
                 new SqlParameter("@Id", Id)
             ).FirstOrDefault();
             if (qry != null)
