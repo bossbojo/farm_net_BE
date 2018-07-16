@@ -31,7 +31,7 @@ namespace FarmNet.Controllers
             }
         }
         [JWTAuthorize]
-        [HttpPost]
+        [HttpPut]
         [Route("api/edit/mysensor")]
         public IHttpActionResult Edit_MySensor([FromBody] m_UpdateSensor request, int Id)
         {
@@ -47,7 +47,7 @@ namespace FarmNet.Controllers
             }
         }
         [JWTAuthorize]
-        [HttpPost]
+        [HttpDelete]
         [Route("api/delete/mysensor")]
         public IHttpActionResult Delete_MySensor(int Id)
         {
