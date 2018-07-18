@@ -20,7 +20,5 @@ namespace FarmNet.Entity
         public string status { get; set; }
 
         public DateTime? create_dt { get; set; }
-
-        public virtual status_code status_code { get; set; }
     }
 }

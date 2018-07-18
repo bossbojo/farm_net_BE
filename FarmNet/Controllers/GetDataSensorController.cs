@@ -127,15 +127,34 @@ namespace FarmNet.Controllers
                 return BadRequest(ex.Message);
             }
         }
-        //------------------------
         [HttpGet]
-        [Route("api/get/moisture/all")]
-        public IHttpActionResult GetMoistureAll(int sensor_id)
+        [Route("api/get/soil")]
+        public IHttpActionResult GetSoil(int sensor_id)
         {
             try
             {
                 var user = Authentication.User;
-                var res = _GetData.GetMoisture(sensor_id);
+                var res = _GetData.GetSoil(sensor_id);
+                if (res != null)
+                {
+                    return Json(res);
+                }
+                return BadRequest("fail get data.");
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
+        //------------------------
+        [HttpGet]
+        [Route("api/get/moisture/all")]
+        public IHttpActionResult GetMoistureAll()
+        {
+            try
+            {
+                var user = Authentication.User;
+                var res = _GetData.GetManyMoisture(user.serial_number);
                 if (res != null)
                 {
                     return Json(res);
@@ -149,12 +168,12 @@ namespace FarmNet.Controllers
         }
         [HttpGet]
         [Route("api/get/moisture_level/all")]
-        public IHttpActionResult GetMoisture_levelAll(int sensor_id)
+        public IHttpActionResult GetMoisture_levelAll()
         {
             try
             {
                 var user = Authentication.User;
-                var res = _GetData.GetMoisture_level(sensor_id);
+                var res = _GetData.GetManyMoistureLevel(user.serial_number);
                 if (res != null)
                 {
                     return Json(res);
@@ -173,7 +192,7 @@ namespace FarmNet.Controllers
             try
             {
                 var user = Authentication.User;
-                var res = _GetData.GetRaining(sensor_id);
+                var res = _GetData.GetManyRaining(user.serial_number);
                 if (res != null)
                 {
                     return Json(res);
@@ -187,12 +206,12 @@ namespace FarmNet.Controllers
         }
         [HttpGet]
         [Route("api/get/temp/all")]
-        public IHttpActionResult GetTempAll(int sensor_id)
+        public IHttpActionResult GetTempAll()
         {
             try
             {
                 var user = Authentication.User;
-                var res = _GetData.GetTemp(sensor_id);
+                var res = _GetData.GetManyTemp(user.serial_number);
                 if (res != null)
                 {
                     return Json(res);
@@ -206,12 +225,12 @@ namespace FarmNet.Controllers
         }
         [HttpGet]
         [Route("api/get/uv/all")]
-        public IHttpActionResult GetUvAll(int sensor_id)
+        public IHttpActionResult GetUvAll()
         {
             try
             {
                 var user = Authentication.User;
-                var res = _GetData.GetUv(sensor_id);
+                var res = _GetData.GetManyUv(user.serial_number);
                 if (res != null)
                 {
                     return Json(res);
@@ -225,12 +244,12 @@ namespace FarmNet.Controllers
         }
         [HttpGet]
         [Route("api/get/wind/all")]
-        public IHttpActionResult GetWindAll(int sensor_id)
+        public IHttpActionResult GetWindAll()
         {
             try
             {
                 var user = Authentication.User;
-                var res = _GetData.GetWind(sensor_id);
+                var res = _GetData.GetManyWind(user.serial_number);
                 if (res != null)
                 {
                     return Json(res);
@@ -242,17 +261,35 @@ namespace FarmNet.Controllers
                 return BadRequest(ex.Message);
             }
         }
-
-        //------------------------
-
         [HttpGet]
-        [Route("api/get/moisture-last")]
-        public IHttpActionResult GetMoisture_last(int sensor_id)
+        [Route("api/get/soil/all")]
+        public IHttpActionResult GetSoilAll()
         {
             try
             {
                 var user = Authentication.User;
-                var res = _GetData.GetMoistureSum(sensor_id);
+                var res = _GetData.GetManySensorSoil(user.serial_number);
+                if (res != null)
+                {
+                    return Json(res);
+                }
+                return BadRequest("fail get data.");
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
+        //------------------------
+
+        [HttpGet]
+        [Route("api/get/moisture-last")]
+        public IHttpActionResult GetMoisture_last()
+        {
+            try
+            {
+                var user = Authentication.User;
+                var res = _GetData.GetMoistureSum(user.serial_number);
                 if (res != null)
                 {
                     return Json(res);
@@ -266,12 +303,12 @@ namespace FarmNet.Controllers
         }
         [HttpGet]
         [Route("api/get/moisture_level-last")]
-        public IHttpActionResult GetMoisture_level_last(int sensor_id)
+        public IHttpActionResult GetMoisture_level_last()
         {
             try
             {
                 var user = Authentication.User;
-                var res = _GetData.GetMoisture_levelSum(sensor_id);
+                var res = _GetData.GetMoisture_levelSum(user.serial_number);
                 if (res != null)
                 {
                     return Json(res);
@@ -285,12 +322,12 @@ namespace FarmNet.Controllers
         }
         [HttpGet]
         [Route("api/get/raining-last")]
-        public IHttpActionResult GetRaining_last(int sensor_id)
+        public IHttpActionResult GetRaining_last()
         {
             try
             {
                 var user = Authentication.User;
-                var res = _GetData.GetRainingSum(sensor_id);
+                var res = _GetData.GetRainingSum(user.serial_number);
                 if (res != null)
                 {
                     return Json(res);
@@ -304,12 +341,12 @@ namespace FarmNet.Controllers
         }
         [HttpGet]
         [Route("api/get/temp-last")]
-        public IHttpActionResult GetTemp_last(int sensor_id)
+        public IHttpActionResult GetTemp_last()
         {
             try
             {
                 var user = Authentication.User;
-                var res = _GetData.GetTempSum(sensor_id);
+                var res = _GetData.GetTempSum(user.serial_number);
                 if (res != null)
                 {
                     return Json(res);
@@ -323,12 +360,12 @@ namespace FarmNet.Controllers
         }
         [HttpGet]
         [Route("api/get/uv-last")]
-        public IHttpActionResult GetUv_last(int sensor_id)
+        public IHttpActionResult GetUv_last()
         {
             try
             {
                 var user = Authentication.User;
-                var res = _GetData.GetUvSum(sensor_id);
+                var res = _GetData.GetUvSum(user.serial_number);
                 if (res != null)
                 {
                     return Json(res);
@@ -342,12 +379,31 @@ namespace FarmNet.Controllers
         }
         [HttpGet]
         [Route("api/get/wind-last")]
-        public IHttpActionResult GetWind_last(int sensor_id)
+        public IHttpActionResult GetWind_last()
         {
             try
             {
                 var user = Authentication.User;
-                var res = _GetData.GetWindSum(sensor_id);
+                var res = _GetData.GetWindSum(user.serial_number);
+                if (res != null)
+                {
+                    return Json(res);
+                }
+                return BadRequest("fail get data.");
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
+        [HttpGet]
+        [Route("api/get/soil-last")]
+        public IHttpActionResult GetSensorSoil_last()
+        {
+            try
+            {
+                var user = Authentication.User;
+                var res = _GetData.GetSoilSum(user.serial_number);
                 if (res != null)
                 {
                     return Json(res);

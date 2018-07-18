@@ -104,6 +104,22 @@ namespace FarmNet.Respositories
             }
             throw new Exception("failed for save");
         }
+        public sensor_soil Create_Soil(int sensor_id, int soil)
+        {
+            var add = db.sensor_soil.Add(new sensor_soil
+            {
+                sensor_id = sensor_id,
+                soil_data = soil,
+                status = "ac",
+                create_dt = DateTime.Now
+            });
+            int res = db.SaveChanges();
+            if (res > 0)
+            {
+                return add;
+            }
+            throw new Exception("failed for save");
+        }
 
     }
 }

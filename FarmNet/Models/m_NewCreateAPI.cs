@@ -53,6 +53,11 @@ namespace FarmNet.Models
         public int sensor_id { get; set; }
         public decimal wind { get; set; }
     }
+    public class m_soil
+    {
+        public int sensor_id { get; set; }
+        public int soil { get; set; }
+    }
 
 
 }

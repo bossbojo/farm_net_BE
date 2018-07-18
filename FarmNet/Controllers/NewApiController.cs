@@ -170,6 +170,24 @@ namespace FarmNet.Controllers
             }
         }
         [HttpPost]
+        [Route("api/save/soil")]
+        public IHttpActionResult Create_soil([FromBody] m_soil request)
+        {
+            try
+            {
+                var res = _Rep.Create_Soil(request.sensor_id, request.soil);
+                if (res != null)
+                {
+                    return Json(res);
+                }
+                return BadRequest("fail get data.");
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
+        [HttpPost]
         [Route("api/save/UpdateLatlng")]
         public IHttpActionResult Create_UpdateLatlng([FromBody] m_UpdateLatlng request)
         {

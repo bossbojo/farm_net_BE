@@ -36,4 +36,9 @@ namespace FarmNet.Models
         public string sensor_name { get; set; }
         public List<s_wind> history_sensor { get; set; }
     }
+    public class r_sensor_soil
+    {
+        public string sensor_name { get; set; }
+        public List<sensor_soil> history_sensor { get; set; }
+    }
 }

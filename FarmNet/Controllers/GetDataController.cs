@@ -34,6 +34,25 @@ namespace FarmNet.Controllers
             }
         }
         [HttpGet]
+        [Route("api/get/all/images/sensor")]
+        public IHttpActionResult GetIamgesSensor()
+        {
+            try
+            {
+                var user = Authentication.User;
+                var res = _GetData.GetImagesAlign(user.serial_number);
+                if (res != null)
+                {
+                    return Json(res);
+                }
+                return BadRequest("fail get data.");
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
+        [HttpGet]
         [Route("api/get/all/images")]
         public IHttpActionResult GetIamges(int sensor_id)
         {

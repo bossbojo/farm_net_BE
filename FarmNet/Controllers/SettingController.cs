@@ -6,6 +6,7 @@ using System.Net.Http;
 using System.Web.Http;
 using FarmNet.Respositories;
 using FarmNet.Models;
+using FarmNet.Authen;
 
 namespace FarmNet.Controllers
 {
@@ -13,33 +14,36 @@ namespace FarmNet.Controllers
     {
         private R_Setting _Setting = new R_Setting();
 
-        //[HttpGet]
-        //[Route("api/get/setting")]
-        //public IHttpActionResult GetSetting(string serial_number) {
-        //        try
-        //        {
-        //            var res = _Setting.GetSetting(serial_number);
-        //            if (res != null)
-        //            {
-        //                return Json(res);
-        //            }
-        //            return BadRequest("Update image failed.");
-        //        }
-        //        catch (Exception ex)
-        //        {
-        //            return BadRequest(ex.Message);
-        //        }
-            
-        //}
+        [HttpGet]
+        [Route("api/get/setting")]
+        public IHttpActionResult GetSetting(string serial_number)
+        {
+            try
+            {
+                var res = _Setting.GetSetting(serial_number);
+                if (res != null)
+                {
+                    return Json(res);
+                }
+                return BadRequest("Update image failed.");
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+
+        }
+        [JWTAuthorize]
         [HttpPut]
         [Route("api/update/setting")]
-        public IHttpActionResult UpdateSetting([FromBody] m_Setting request, int id)
+        public IHttpActionResult UpdateSetting([FromBody] m_Setting request)
         {
             if (ModelState.IsValid)
             {
                 try
                 {
-                    var res = _Setting.SettingEdit(request, id);
+                    var user = Authentication.User;
+                    var res = _Setting.SettingEdit(request,user.user_id);
                     if (res != null)
                     {
                         return Json(res);
@@ -52,24 +56,6 @@ namespace FarmNet.Controllers
                 }
             }
             return BadRequest("Model is incorrect.");
-        }
-        [HttpDelete]
-        [Route("api/delete/setting")]
-        public IHttpActionResult DeleteSetting(int id)
-        {
-            try
-            {
-                var res = _Setting.SettingRemove(id);
-                if (res != null)
-                {
-                    return Json(res);
-                }
-                return BadRequest("Delete data sensor failed.");
-            }
-            catch (Exception ex)
-            {
-                return BadRequest(ex.Message);
-            }
         }
     }
 }
