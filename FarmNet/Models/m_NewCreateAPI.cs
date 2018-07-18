@@ -36,7 +36,7 @@ namespace FarmNet.Models
     public class m_raining
     {
         public int sensor_id { get; set; }
-        public bool raining { get; set; }
+        public int raining { get; set; }
     }
     public class m_temp
     {
@@ -46,12 +46,12 @@ namespace FarmNet.Models
     public class m_uv
     {
         public int sensor_id { get; set; }
-        public int uv { get; set; }
+        public decimal uv { get; set; }
     }
     public class m_wind
     {
         public int sensor_id { get; set; }
-        public int wind { get; set; }
+        public decimal wind { get; set; }
     }
 
 

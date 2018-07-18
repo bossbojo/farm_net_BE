@@ -12,7 +12,6 @@ namespace FarmNet.Entity
         public int Id { get; set; }
 
         [DatabaseGenerated(DatabaseGeneratedOption.Computed)]
-        [Required]
         [StringLength(5)]
         public string RunId { get; set; }
 
@@ -29,7 +28,6 @@ namespace FarmNet.Entity
         [Required]
         [StringLength(2)]
         public string status { get; set; }
-
         public DateTime create_dt { get; set; }
     }
 }

@@ -127,6 +127,121 @@ namespace FarmNet.Controllers
                 return BadRequest(ex.Message);
             }
         }
+        //------------------------
+        [HttpGet]
+        [Route("api/get/moisture/all")]
+        public IHttpActionResult GetMoistureAll(int sensor_id)
+        {
+            try
+            {
+                var user = Authentication.User;
+                var res = _GetData.GetMoisture(sensor_id);
+                if (res != null)
+                {
+                    return Json(res);
+                }
+                return BadRequest("fail get data.");
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
+        [HttpGet]
+        [Route("api/get/moisture_level/all")]
+        public IHttpActionResult GetMoisture_levelAll(int sensor_id)
+        {
+            try
+            {
+                var user = Authentication.User;
+                var res = _GetData.GetMoisture_level(sensor_id);
+                if (res != null)
+                {
+                    return Json(res);
+                }
+                return BadRequest("fail get data.");
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
+        [HttpGet]
+        [Route("api/get/raining/all")]
+        public IHttpActionResult GetRainingAll(int sensor_id)
+        {
+            try
+            {
+                var user = Authentication.User;
+                var res = _GetData.GetRaining(sensor_id);
+                if (res != null)
+                {
+                    return Json(res);
+                }
+                return BadRequest("fail get data.");
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
+        [HttpGet]
+        [Route("api/get/temp/all")]
+        public IHttpActionResult GetTempAll(int sensor_id)
+        {
+            try
+            {
+                var user = Authentication.User;
+                var res = _GetData.GetTemp(sensor_id);
+                if (res != null)
+                {
+                    return Json(res);
+                }
+                return BadRequest("fail get data.");
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
+        [HttpGet]
+        [Route("api/get/uv/all")]
+        public IHttpActionResult GetUvAll(int sensor_id)
+        {
+            try
+            {
+                var user = Authentication.User;
+                var res = _GetData.GetUv(sensor_id);
+                if (res != null)
+                {
+                    return Json(res);
+                }
+                return BadRequest("fail get data.");
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
+        [HttpGet]
+        [Route("api/get/wind/all")]
+        public IHttpActionResult GetWindAll(int sensor_id)
+        {
+            try
+            {
+                var user = Authentication.User;
+                var res = _GetData.GetWind(sensor_id);
+                if (res != null)
+                {
+                    return Json(res);
+                }
+                return BadRequest("fail get data.");
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
 
         //------------------------
 

@@ -81,21 +81,6 @@ namespace FarmNet.Controllers
                 return BadRequest(ex.Message);
             }
         }
-        //[HttpGet]
-        //[Route("api/get/data_sensor")]
-        //public IHttpActionResult GetDataSensor(int start,int max) {
-        //    try {
-        //        var user = Authentication.User;
-        //        var res = _GetData.getDataSensor(user.serial_number,start,max);
-        //        if (res != null) {
-        //            return Json(res);
-        //        }
-        //        return BadRequest("fail get data.");
-        //    }
-        //    catch (Exception ex) {
-        //        return BadRequest(ex.Message);
-        //    }
-        //}
         [HttpGet]
         [Route("api/get/data/sensor/main")]
         public IHttpActionResult GetChartBySerial()

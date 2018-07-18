@@ -103,7 +103,7 @@ namespace FarmNet.Controllers
         {
             try
             {
-                var res = _Rep.Create_Raining(request.sensor_id, request.raining);
+                var res = _Rep.Create_Raining(request.sensor_id, request.raining == 0 ? false : true);
                 if (res != null)
                 {
                     return Json(res);
@@ -139,7 +139,7 @@ namespace FarmNet.Controllers
         {
             try
             {
-                var res = _Rep.Create_Uv(request.sensor_id, request.uv);
+                var res = _Rep.Create_Uv(request.sensor_id, (int)request.uv);
                 if (res != null)
                 {
                     return Json(res);
@@ -157,7 +157,7 @@ namespace FarmNet.Controllers
         {
             try
             {
-                var res = _Rep.Create_Wind(request.sensor_id, request.wind);
+                var res = _Rep.Create_Wind(request.sensor_id, (int)request.wind);
                 if (res != null)
                 {
                     return Json(res);

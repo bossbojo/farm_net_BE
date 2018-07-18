@@ -23,7 +23,8 @@ namespace FarmNet.Respositories
         {
             var add = db.s_moisture.Add(new s_moisture {
                 sensor_id = sensor_id,
-                moisture = moisture
+                moisture = moisture,
+                created_dt = DateTime.Now
             });
             int res = db.SaveChanges();
             if (res > 0) {
@@ -35,7 +36,8 @@ namespace FarmNet.Respositories
         {
             var add = db.s_moisture_level.Add(new s_moisture_level {
                 sensor_id = sensor_id,
-                moisture_level = moisture_level
+                moisture_level = moisture_level,
+                created_dt = DateTime.Now
             });
             int res = db.SaveChanges();
             if (res > 0) {
@@ -47,7 +49,8 @@ namespace FarmNet.Respositories
         {
             var add = db.s_raining.Add(new s_raining {
                 sensor_id = sensor_id,
-                raining = raining
+                raining = raining,
+                created_dt = DateTime.Now
             });
             int res = db.SaveChanges();
             if (res > 0)
@@ -61,7 +64,8 @@ namespace FarmNet.Respositories
             var add = db.s_temp.Add(new s_temp
             {
                 sensor_id = sensor_id,
-                temp = temp
+                temp = temp,
+                created_dt = DateTime.Now
             });
             int res = db.SaveChanges();
             if (res > 0)
@@ -75,7 +79,8 @@ namespace FarmNet.Respositories
             var add = db.s_uv.Add(new s_uv
             {
                 sensor_id = sensor_id,
-                uv = uv
+                uv = uv,
+                created_dt = DateTime.Now
             });
             int res = db.SaveChanges();
             if (res > 0)
@@ -89,7 +94,8 @@ namespace FarmNet.Respositories
             var add = db.s_wind.Add(new s_wind
             {
                 sensor_id = sensor_id,
-                wind = wind
+                wind = wind,
+                created_dt = DateTime.Now
             });
             int res = db.SaveChanges();
             if (res > 0)
