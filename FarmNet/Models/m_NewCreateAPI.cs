@@ -25,37 +25,37 @@ namespace FarmNet.Models
     }
     public class m_moisture
     {
-        public int sensor_id { get; set; }
+        public string sensor_id { get; set; }
         public decimal moisture { get; set; }
     }
     public class m_moisture_level
     {
-        public int sensor_id { get; set; }
+        public string sensor_id { get; set; }
         public int moisture_level { get; set; }
     }
     public class m_raining
     {
-        public int sensor_id { get; set; }
+        public string sensor_id { get; set; }
         public int raining { get; set; }
     }
     public class m_temp
     {
-        public int sensor_id { get; set; }
+        public string sensor_id { get; set; }
         public decimal temp { get; set; }
     }
     public class m_uv
     {
-        public int sensor_id { get; set; }
+        public string sensor_id { get; set; }
         public decimal uv { get; set; }
     }
     public class m_wind
     {
-        public int sensor_id { get; set; }
+        public string sensor_id { get; set; }
         public decimal wind { get; set; }
     }
     public class m_soil
     {
-        public int sensor_id { get; set; }
+        public string sensor_id { get; set; }
         public int soil { get; set; }
     }
 
