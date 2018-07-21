@@ -10,7 +10,8 @@ namespace FarmNet.Respositories
     public class R_NewRep
     {
         public int ConvertInt(string id) {
-            return db.align_sensor_name.FirstOrDefault(c => c.Id == int.Parse(id) || c.RunId == id).Id;
+            int isId = Int32.Parse(id.Replace('S', ' '));
+            return db.align_sensor_name.FirstOrDefault(c => c.Id == isId || c.RunId == id).Id;
         }
         private FarmDB db = new FarmDB();
         public users Update_latlng(string serial_number, float lat, float lng)

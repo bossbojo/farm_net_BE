@@ -67,8 +67,8 @@ namespace FarmNet.Controllers
         {
             try
             {
-                
-                var res = _Rep.Create_Moisture(_Rep.ConvertInt(request.sensor_id), request.moisture);
+                int id = _Rep.ConvertInt(request.sensor_id);
+                var res = _Rep.Create_Moisture(id, request.moisture);
                 if (res != null)
                 {
                     return Json(res);
@@ -86,7 +86,8 @@ namespace FarmNet.Controllers
         {
             try
             {
-                var res = _Rep.Create_MoistureLevel(_Rep.ConvertInt(request.sensor_id), request.moisture_level);
+                int id = _Rep.ConvertInt(request.sensor_id);
+                var res = _Rep.Create_MoistureLevel(id, request.moisture_level);
                 if (res != null)
                 {
                     return Json(res);
@@ -104,7 +105,8 @@ namespace FarmNet.Controllers
         {
             try
             {
-                var res = _Rep.Create_Raining(_Rep.ConvertInt(request.sensor_id), request.raining == 0 ? false : true);
+                int id = _Rep.ConvertInt(request.sensor_id);
+                var res = _Rep.Create_Raining(id, request.raining == 0 ? false : true);
                 if (res != null)
                 {
                     return Json(res);
@@ -122,7 +124,8 @@ namespace FarmNet.Controllers
         {
             try
             {
-                var res = _Rep.Create_Temp(_Rep.ConvertInt(request.sensor_id), request.temp);
+                int id = _Rep.ConvertInt(request.sensor_id);
+                var res = _Rep.Create_Temp(id, request.temp);
                 if (res != null)
                 {
                     return Json(res);
@@ -140,7 +143,8 @@ namespace FarmNet.Controllers
         {
             try
             {
-                var res = _Rep.Create_Uv(_Rep.ConvertInt(request.sensor_id), (int)request.uv);
+                int id = _Rep.ConvertInt(request.sensor_id);
+                var res = _Rep.Create_Uv(id, (int)request.uv);
                 if (res != null)
                 {
                     return Json(res);
@@ -158,7 +162,8 @@ namespace FarmNet.Controllers
         {
             try
             {
-                var res = _Rep.Create_Wind(_Rep.ConvertInt(request.sensor_id), (int)request.wind);
+                int id = _Rep.ConvertInt(request.sensor_id);
+                var res = _Rep.Create_Wind(id, (int)request.wind);
                 if (res != null)
                 {
                     return Json(res);
@@ -176,7 +181,8 @@ namespace FarmNet.Controllers
         {
             try
             {
-                var res = _Rep.Create_Soil(_Rep.ConvertInt(request.sensor_id), request.soil);
+                int id = _Rep.ConvertInt(request.sensor_id);
+                var res = _Rep.Create_Soil(id, request.soil);
                 if (res != null)
                 {
                     return Json(res);

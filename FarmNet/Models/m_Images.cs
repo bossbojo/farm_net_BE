@@ -7,7 +7,7 @@ namespace FarmNet.Models
 {
     public class m_Images
     {
-        public int sensor_id { get; set; }
+        public string sensor_id { get; set; }
         public string image { get; set; }
     }
 }
